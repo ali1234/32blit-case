@@ -17,11 +17,11 @@ module dpad() {
 }
 
 module btn() {
-    translate([0, 16/2]) circle(d=8.1);
-    translate([0, -16/2]) circle(d=8.1);
+    translate([0, 15.5/2]) circle(d=8.1);
+    translate([0, -15.5/2]) circle(d=8.1);
 
-    translate([17/2, 0]) circle(d=8.1);
-    translate([-17/2, 0]) circle(d=8.1);
+    translate([16/2, 0]) circle(d=8.1);
+    translate([-16/2, 0]) circle(d=8.1);
 
 }
 
@@ -45,15 +45,15 @@ module analog() {
 
 
 module dpad_pos() {
-    translate([(w/2)-16.75, -9.25]) children();
+    translate([(w/2)-18, -9.25]) children();
 }
 
 module analog_pos() {
-    translate([(w/2)-16.75, 17.5]) children();
+    translate([(w/2)-17, 20.5]) children();
 }
 
 module btn_pos() {
-    translate([18.5-(w/2), 10]) children();
+    translate([18.5-(w/2), 10.4]) children();
 }
 
 module smlbtn_pos() {
@@ -157,7 +157,7 @@ module front2() {
 
                 }
 
-                led_pos() translate([0, 1, 4]) cube([4, 3, 6], center=true);
+                led_pos() translate([0, 1, 4]) cube([5, 3, 6], center=true);
                 translate([0, 0, 6.0]) linear_extrude(height=5) outline();
                 translate([0, 0, 1.05]) screen();
 
@@ -165,7 +165,7 @@ module front2() {
                 mirror([1, 0, 0]) control_cutout();
             }
         }
-        translate([0, 0, 2]) linear_extrude(height=20) screw_pos() circle(d=1.4);
+        translate([0, 0, 1.5]) linear_extrude(height=20) screw_pos() circle(d=1.2);
     }
 
 
@@ -178,10 +178,11 @@ color("lime") {
         front2();
 }
 
-
-color("lightgrey") {
-    btn_pos() btn();
-    smlbtn_pos() smlbtn();
-    dpad_pos() dpad();
-    analog_pos() analog();
+if(0) {
+    color("lightgrey") {
+        btn_pos() btn();
+        smlbtn_pos() smlbtn();
+        dpad_pos() dpad();
+        analog_pos() analog();
+    }
 }
