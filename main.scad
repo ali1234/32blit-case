@@ -45,11 +45,11 @@ module analog() {
 
 
 module dpad_pos() {
-    translate([(w/2)-18, -9.25]) children();
+    translate([(w/2)-17.5, -9]) children();
 }
 
 module analog_pos() {
-    translate([(w/2)-17, 20.5]) children();
+    translate([(w/2)-17, 21]) children();
 }
 
 module btn_pos() {
@@ -67,31 +67,33 @@ module led_pos() {
 }
 
 module screw_pos() {
-    translate([143.5/2, 0]) {
-        translate([0, -29]) children();
-        translate([0, 0]) children();
-        translate([0, 29]) children();
-        translate([-30, 0]) {
-            //translate([0, -29]) children();
+    translate([0, 0.2, 0]) {
+        translate([143.5/2, 0]) {
+            translate([0, -29]) children();
             translate([0, 0]) children();
             translate([0, 29]) children();
+            translate([-30, 0]) {
+                //translate([0, -29]) children();
+                translate([0, 0]) children();
+                translate([0, 29]) children();
+            }
         }
-    }
-    translate([-143.5/2, 0]) {
-        translate([0, -29]) children();
-        translate([0, 0]) children();
-        translate([0, 29]) children();
-        translate([30, 0]) {
+        translate([-144.5/2, 0]) {
             translate([0, -29]) children();
-            //translate([0, 0]) children();
+            translate([0, 0]) children();
             translate([0, 29]) children();
+            translate([30, 0]) {
+                translate([0, -29]) children();
+                //translate([0, 0]) children();
+                translate([0, 29]) children();
+            }
         }
     }
 }
 
 module screen() {
     linear_extrude(height=5) translate([0, 0]) square([77.5, 65], center=true);
-    linear_extrude(height=5, center=true) translate([0, 2]) square([73, 56], center=true);
+    linear_extrude(height=5, center=true) translate([0, 2.5]) square([73, 56], center=true);
 }
 
 
@@ -101,7 +103,7 @@ module outline() {
 
 
 
-
+/*
 module front() {
     difference() {
         linear_extrude(height=6.5, convexity=10) difference() {
@@ -116,22 +118,22 @@ module front() {
         analog_pos() translate([0, 0, 0]) scale([1, 1, 0.3]) sphere(d=25);
     }
 }
-
+*/
 
 module shell() {
     difference() {
         linear_extrude(height=7.6, convexity=10) difference() {
-            offset(1.8) outline();
+            offset(1.6) outline();
             outline();
 
         }
     }
 }
 
-module control_cutout() {
+module control_cutout(l) {
 
-    translate([56.75, -1, 7]) {
-        cube([32, 58, 10], center=true);
+    translate([57, l?0.75:-2, 6.75]) {
+        linear_extrude(height=10, center=true, convexity=10) offset(4) offset(-4) square([34, l ? 63.5 : 58], center=true);
         //cube([26, 52, 10], center=true);
     }
 
@@ -157,15 +159,15 @@ module front2() {
 
                 }
 
-                led_pos() translate([0, 1, 4]) cube([5, 3, 6], center=true);
+                led_pos() translate([0, 1, 3.5]) cube([5, 3, 6], center=true);
                 translate([0, 0, 6.0]) linear_extrude(height=5) outline();
                 translate([0, 0, 1.05]) screen();
 
-                control_cutout();
-                mirror([1, 0, 0]) control_cutout();
+                control_cutout(true);
+                mirror([1, 0, 0]) control_cutout(false);
             }
         }
-        translate([0, 0, 1.5]) linear_extrude(height=20) screw_pos() circle(d=1.2);
+        translate([0, 0, 1.5]) linear_extrude(height=20) screw_pos() circle(d=1.8);
     }
 
 
