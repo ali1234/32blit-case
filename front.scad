@@ -1,6 +1,9 @@
 // Copyright 2019 a.j.buxton@gmail.com
 // CC BY-NC-ND 4.0
 
+include <positions.scad>;
+include <controls.scad>;
+
 $fn = 64;
 
 
@@ -9,31 +12,7 @@ h = 65;
 
 
 
-module dpad() {
-    offset(r=0.5) offset(r=-0.5) offset(r=-0.5) offset(r=0.5) union() {
-        square([6.5, 19], center=true);
-        square([19, 6.5], center=true);
-    }
-}
 
-module btn() {
-    translate([0, 15.5/2]) children(); //circle(d=8.1);
-    translate([0, -15.5/2]) children();
-
-    translate([16/2, 0]) children();
-    translate([-16/2, 0]) children();
-
-}
-
-module smlbtn() {
-    translate([9.5/2, 0]) children(); //circle(d=5.2);
-    translate([-9.5/2, 0]) children();
-
-}
-
-module analog() {
-    circle(d=15);
-}
 
 // btn 8.3 diameter
 
@@ -44,52 +23,7 @@ module analog() {
 
 
 
-module dpad_pos() {
-    translate([(w/2)-17.5, -9]) children();
-}
 
-module analog_pos() {
-    translate([(w/2)-16.75, 21.25]) children();
-}
-
-module btn_pos() {
-    translate([18.7-(w/2), 10.4]) children();
-}
-
-module smlbtn_pos() {
-    translate([18.7-(w/2), -17.5]) children();
-}
-
-module led_pos() {
-    translate([-48.75, 30]) children();
-    translate([-56.75, 30]) children();
-    translate([-64.75, 30]) children();
-}
-
-module screw_pos() {
-    translate([0, 0.2, 0]) {
-        translate([143.5/2, 0]) {
-            translate([0, -29]) children();
-            translate([0, 0]) children();
-            translate([0, 29]) children();
-            translate([-30, 0]) {
-                //translate([0, -29]) children();
-                translate([0, 0]) children();
-                translate([0, 29]) children();
-            }
-        }
-        translate([-144.5/2, 0]) {
-            translate([0, -29]) children();
-            translate([0, 0]) children();
-            translate([0, 29]) children();
-            translate([30, 0]) {
-                translate([0, -29]) children();
-                //translate([0, 0]) children();
-                translate([0, 29]) children();
-            }
-        }
-    }
-}
 
 module screen() {
     linear_extrude(height=5) translate([0, 0]) square([77.5, 65], center=true);
@@ -209,6 +143,8 @@ color("lime") {
         front2();
 }
 
+
+
 if(0) {
     color("darkgrey") {
         btn_pos() btn() circle(d=8.1);
@@ -217,3 +153,5 @@ if(0) {
         analog_pos() analog();
     }
 }
+
+
