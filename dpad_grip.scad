@@ -31,13 +31,15 @@ module dpad_half_r() {
 }
 
 module dpad_r() {
-    linear_extrude(height=2) difference() {
-        circle(d=29);
-        dpad_half_r();
-        rotate(90) dpad_half_r();
+    linear_extrude(height=2.6) difference() {
+        circle(d=28.2);
+        offset(0.5) union() {
+            dpad_half_r();
+            rotate(90) dpad_half_r();
+        }
     }
 
-    twobytwo() translate([8.5, 8.5, 2]) sphere(d=2);
+    twobytwo() translate([8.5, 8.5, 2.4]) sphere(d=1.9);
 }
 
 
