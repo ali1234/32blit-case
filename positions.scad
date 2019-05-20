@@ -23,13 +23,13 @@ module led_pos() {
     translate([-64.75, 30]) children();
 }
 
-module screw_pos() {
+module screw_pos(internal=true) {
     translate([0, 0.2, 0]) {
         translate([143.5/2, 0]) {
             translate([0, -29]) children();
-            translate([0, 0]) children();
+            if (internal) translate([0, 0]) children();
             translate([0, 29]) children();
-            translate([-30, 0]) {
+            if (internal) translate([-30, 0]) {
                 //translate([0, -29]) children();
                 translate([0, 0]) children();
                 translate([0, 29]) children();
@@ -37,9 +37,9 @@ module screw_pos() {
         }
         translate([-144.5/2, 0]) {
             translate([0, -29]) children();
-            translate([0, 0]) children();
+            if (internal) translate([0, 0]) children();
             translate([0, 29]) children();
-            translate([30, 0]) {
+            if (internal) translate([30, 0]) {
                 translate([0, -29]) children();
                 //translate([0, 0]) children();
                 translate([0, 29]) children();
