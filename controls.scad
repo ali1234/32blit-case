@@ -9,11 +9,11 @@ module dpad() {
 }
 
 module btn() {
-    translate([0, 15.5/2]) children(); //circle(d=8.1);
-    translate([0, -15.5/2]) children();
+    translate([0, 15.5/2]) rotate(270) children(); //circle(d=8.1);
+    translate([0, -15.5/2]) rotate(90) children();
 
-    translate([16/2, 0]) children();
-    translate([-16/2, 0]) children();
+    translate([16/2, 0]) rotate(180) children();
+    translate([-16/2, 0]) rotate(0) children();
 
 }
 

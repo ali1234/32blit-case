@@ -37,7 +37,7 @@ module dpad_r() {
         }
     }
 
-    linear_extrude(height=2.6) difference() {
+    linear_extrude(height=3.0) difference() {
         circle(d=28.2);
         offset(0.5) union() {
             dpad_half_r();
@@ -45,7 +45,7 @@ module dpad_r() {
         }
     }
 
-    twobytwo() translate([8.5, 8.5, 2.4]) sphere(d=1.8);
+    twobytwo() translate([8.5, 8.5, 2.6]) sphere(d=1.8);
 }
 
 
