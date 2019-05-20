@@ -19,15 +19,20 @@ module dpad_c() {
             }
         }
         twobytwo() translate([8.5, 8.5, 0]) sphere(d=2.1);
-        translate([0, 0, -1]) linear_extrude(height=10, convexity=10) btn() circle(d=8.3);;
-        translate([0, 0, -0.2]) linear_extrude(height=1, convexity=10) btn() difference() {
-            circle(d=10.5);
-            translate([-9.8, 0, 0]) square(10, center=true);
-            translate([10, 0, 0]) square(10, center=true);
+        translate([0, 0, -1]) linear_extrude(height=10, convexity=10) btn() circle(d=8.6);
+        translate([0, 0, -0.15]) linear_extrude(height=1, convexity=10) btn() difference() {
+            circle(d=11);
+            translate([-10.1, 0, 0]) square(10, center=true);
+            translate([10.35, 0, 0]) square(10, center=true);
         }
+
         translate([0, 0, 4.7]) hull() rotate_extrude() translate([11.3, 0]) circle(3.5);
         //translate([0, 0, 51.5]) sphere(r=50.5);
 
+    }
+    linear_extrude(height=1, convexity=10) btn() translate([-1.75, 0, 0]) {
+            translate([0, 5, 0]) circle(d=0.9);
+            translate([0, -5, 0]) circle(d=0.9);
     }
 
 
