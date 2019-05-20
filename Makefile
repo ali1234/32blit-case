@@ -1,4 +1,4 @@
-FILES = front.stl dpad_grip.stl dpad_cover.stl
+FILES = front.stl back.stl dpad_grip.stl dpad_cover.stl btn_grip.stl btn_cover.stl
 INCLUDES = controls.scad positions.scad
 
 
