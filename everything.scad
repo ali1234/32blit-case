@@ -8,9 +8,10 @@ use <back.scad>;
 use <buttons.scad>;
 
 
-translate([0, 0, -8]) back();
+translate([0, 0, -12]) mirror([1, 0]) back();
 
-rotate([0, 180, 0]) translate([0, 0, -8]) {
+
+rotate([0, 180, 0]) translate([0, 0, -12]) {
     front();
     btn_pos() translate([0, 0, 4]) rotate([0, 180, 0]) buttons();
     smlbtn_pos() smlbtn() circle(d=5.2);

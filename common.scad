@@ -26,9 +26,9 @@ module outline() {
 }
 
 
-module shell() {
+module shell(height=7.6) {
     difference() {
-        linear_extrude(height=7.6, convexity=10) difference() {
+        linear_extrude(height=height, convexity=10) difference() {
             offset(1.6) outline();
             outline();
 
