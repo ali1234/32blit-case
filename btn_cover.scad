@@ -21,7 +21,7 @@ module dpad_c() {
         twobytwo() translate([8.5, 8.5, 0]) sphere(d=2.1);
         translate([0, 0, -1]) linear_extrude(height=10, convexity=10) btn() circle(d=8.6);
         translate([0, 0, -0.15]) linear_extrude(height=1, convexity=10) btn() difference() {
-            circle(d=11);
+            circle(d=11.35);
             translate([-10.1, 0, 0]) square(10, center=true);
             translate([10.35, 0, 0]) square(10, center=true);
         }
@@ -30,9 +30,9 @@ module dpad_c() {
         //translate([0, 0, 51.5]) sphere(r=50.5);
 
     }
-    linear_extrude(height=1, convexity=10) btn() translate([-1.75, 0, 0]) {
-            translate([0, 5, 0]) circle(d=0.9);
-            translate([0, -5, 0]) circle(d=0.9);
+    linear_extrude(height=1, convexity=10) btn() translate([-1.8, 0, 0]) {
+            translate([0, 5.2, 0]) circle(d=0.8);
+            translate([0, -5.2, 0]) circle(d=0.8);
     }
 
 
