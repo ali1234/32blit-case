@@ -106,7 +106,7 @@ module front2() {
                 mirror([1, 0, 0]) control_cutout(false);
             }
         }
-        translate([0, 0, 1.5]) linear_extrude(height=20, convexity=10) screw_pos() circle(d=1.8);
+        translate([0, 0, 1.5]) linear_extrude(height=20, convexity=10) screw_pos() circle(d=1.7);
 
         translate([0, 0, -1]) linear_extrude(height=20, convexity=10) {
             btn_pos() circle(d=29);
@@ -125,6 +125,14 @@ module front2() {
                 square([32, 8], center=true);
             }
             dpad_pos() {
+                square([8, 32], center=true);
+                square([32, 8], center=true);
+            }
+            analog_pos() {
+                square([8, 32], center=true);
+                square([32, 8], center=true);
+            }
+            smlbtn_pos() {
                 square([8, 32], center=true);
                 square([32, 8], center=true);
             }
