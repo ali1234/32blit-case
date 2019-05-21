@@ -3,7 +3,9 @@
 
 include <common.scad>;
 
-$fn=64;
+RES = undef;
+
+$fn = RES ? RES : 16;
 
 module analog() {
     circle(d=15);

@@ -3,7 +3,9 @@
 
 include <common.scad>;
 
-$fn = 64;
+RES = undef;
+
+$fn = RES ? RES : 16;
 
 
 back_depth=5.6;
@@ -13,7 +15,7 @@ screw_thickness = 2.0;
 
 module back() {
     difference() {
-        color("lime") {
+        union() {
 
             shell(height=back_depth+back_thickness);
 

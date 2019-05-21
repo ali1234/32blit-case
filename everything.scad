@@ -9,19 +9,29 @@ use <analog.scad>;
 use <buttons.scad>;
 
 
-translate([0, 0, -12]) mirror([1, 0]) back();
+main_colour = "lightgrey";
+insert_colour = "grey";
+
+translate([0, 0, -6.65]) mirror([1, 0]) color(main_colour) back();
 
 
-rotate([0, 180, 0]) translate([0, 0, -12]) {
-    front();
-    btn_pos() {
-        translate([0, 0, 4.5]) rotate([0, 180, 0]) buttons();
-        translate([0, 0, 1.6]) color("darkgrey") button_insert();
-    }
-    smlbtn_pos() smlbtn() circle(d=5.2);
-    dpad_pos() dpad();
-    analog_pos() {
-        color("black") analog();
-        color("darkgrey") translate([0, 0, 3.6]) analog_insert();
+module front_assembly() {
+    {
+        color(main_colour) front();
+        btn_pos() {
+            translate([0, 0, 4.5]) rotate([0, 180, 0]) buttons();
+            translate([0, 0, 1.6]) color(insert_colour) button_insert();
+        }
+        smlbtn_pos() smlbtn() circle(d=5.2);
+        dpad_pos() dpad();
+        analog_pos() {
+            color([0.1, 0.1, 0.1]) translate([0, 0, -3]) analog();
+            color(insert_colour) translate([0, 0, 3.4]) analog_insert();
+        }
     }
 }
+
+translate([0, 0, 7.65]) rotate([0, 180, 0]) front_assembly();
+
+
+translate([0, -80, 0]) rotate([0, 0, 180]) front_assembly();
