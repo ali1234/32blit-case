@@ -1,4 +1,4 @@
-FILES = button_A.stl button_B.stl button_X.stl button_Y.stl button_holder.stl front.stl back.stl
+FILES = front.stl back.stl analog_insert.stl button_A.stl button_B.stl button_X.stl button_Y.stl button_insert.stl
 INCLUDES = common.scad util.scad
 
 
@@ -11,7 +11,10 @@ front.stl: front.scad $(INCLUDES)
 back.stl: back.scad $(INCLUDES)
 	/home/al/Source/openscad/openscad -D RES=64 -o $@ $<
 
-button_%.stl: buttons.scad
+analog_%.stl: analog.scad $(INCLUDES)
+	/home/al/Source/openscad/openscad -D RES=64 -o $@ $<
+
+button_%.stl: buttons.scad $(INCLUDES)
 	/home/al/Source/openscad/openscad -D RES=64 -D WHICH=\"$*\" -o $@ $<
 
 clean:

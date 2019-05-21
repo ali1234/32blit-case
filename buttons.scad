@@ -79,7 +79,7 @@ module buttons() {
 
 
 
-module button_holder() {
+module button_insert() {
 
     front_thickness = 1.2;
 
@@ -126,13 +126,10 @@ else if (WHICH == "X") {
 else if (WHICH == "Y") {
     button($which = 3);
 }
-else if (WHICH == "holder") {
-    button_holder();
-}
-else if (WHICH == "cover") {
-    button_cover();
+else if (WHICH == "insert") {
+    button_insert();
 }
 else if (1) {
-    translate([0, 0, -10]) rotate([0, 180, 0]) button_holder();
+    translate([0, 0, -10]) rotate([0, 180, 0]) button_insert();
     button_positions() button();
 }

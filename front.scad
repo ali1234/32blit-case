@@ -2,7 +2,6 @@
 // CC BY-NC-ND 4.0
 
 include <common.scad>;
-use <buttons.scad>;
 
 $fn = 64;
 
@@ -66,7 +65,7 @@ module front() {
                 dpad_pos() circle(d=button_hole_diameter);
 
                 smlbtn_pos() offset(r=4) hull() smlbtn() circle(d=5.2);
-                analog_pos() circle(d=22.5);
+                analog_pos() circle(d=analog_hole_diameter);
             }
 
           /*  translate([0, 0, -0.01]) {

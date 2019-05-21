@@ -8,9 +8,10 @@ h = 65;
 button_radius = 8.4/2;
 button_height = 4.5;
 
-// the case cutout
+// abxy and dpad holes
 button_hole_diameter = 29;
-
+// analog stick
+analog_hole_diameter = 22.5;
 
 
 button_letters = ["A", "B", "X", "Y"];
@@ -101,6 +102,3 @@ module smlbtn() {
 
 }
 
-module analog() {
-    circle(d=15);
-}
