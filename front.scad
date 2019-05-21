@@ -35,6 +35,9 @@ module front() {
                     dpad_pos() circle(d=button_hole_diameter+2);
 
                     smlbtn_pos() offset(r=5) hull() smlbtn() circle(d=5.2);
+                }
+
+                linear_extrude(height=5, convexity=10) {
                     analog_pos() circle(d=24.5);
                 }
 
@@ -70,16 +73,12 @@ module front() {
                 analog_pos() cylinder(d1=22.5, d2=22, h=0.25);
             }*/
 
-            translate([0, 0, 2.1]) linear_extrude(height=20, convexity=10) {
+            translate([0, 0, 1.6]) linear_extrude(height=20, convexity=10) {
                 btn_pos() {
                     square([8, 32], center=true);
                     square([32, 8], center=true);
                 }
                 dpad_pos() {
-                    square([8, 32], center=true);
-                    square([32, 8], center=true);
-                }
-                analog_pos() {
                     square([8, 32], center=true);
                     square([32, 8], center=true);
                 }
@@ -89,7 +88,12 @@ module front() {
                 }
             }
 
-
+            translate([0, 0, 3.6]) linear_extrude(height=20, convexity=10) {
+                analog_pos() {
+                    translate([0, -6, 0]) square([8, 30], center=true);
+                    square([32, 8], center=true);
+                }
+            }
         }
     }
 
