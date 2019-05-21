@@ -27,7 +27,7 @@ module back() {
 
                     difference() {
 
-                        linear_extrude(height=back_depth+back_thickness, convexity=10) difference() {
+                        linear_extrude(height=back_depth+back_thickness) difference() {
                             outline();
                         }
 
@@ -39,8 +39,8 @@ module back() {
 
                     }
                 }
-                translate([0, 0, 1.5]) linear_extrude(height=20, convexity=10) screw_pos(false) circle(d=2.2);
-                translate([0, 0, -screw_thickness]) linear_extrude(height=back_depth+back_thickness, convexity=10) screw_pos(false) circle(d=5.8);
+                translate([0, 0, 1.5]) linear_extrude(height=20) screw_pos(false) circle(d=2.2);
+                translate([0, 0, -screw_thickness]) linear_extrude(height=back_depth+back_thickness) screw_pos(false) circle(d=5.8);
             }
         }
         // usb

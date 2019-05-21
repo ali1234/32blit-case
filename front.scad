@@ -16,7 +16,7 @@ module screen() {
 
 module control_cutout(l) {
     translate([57, l?0.75:-2, 6.25]) {
-        linear_extrude(height=10, center=true, convexity=10) offset(4) offset(-4) square([34, l ? 63.5 : 58], center=true);
+        linear_extrude(height=10, center=true) offset(4) offset(-4) square([34, l ? 63.5 : 58], center=true);
         //cube([26, 52, 10], center=true);
     }
 }
@@ -29,7 +29,7 @@ module front() {
         union() {
             screw_pos() cylinder(r=2, h=6);
 
-            linear_extrude(height=3.5, convexity=4) {
+            linear_extrude(height=3.5) {
 
                 btn_pos() circle(d=button_hole_diameter+2);
                 dpad_pos() circle(d=button_hole_diameter+2);
@@ -37,13 +37,11 @@ module front() {
                 smlbtn_pos() offset(r=5) hull() smlbtn() circle(d=5.2);
             }
 
-            linear_extrude(height=5, convexity=10) {
-                analog_pos() circle(d=24.5);
-            }
+            analog_pos() cylinder(d=24.5, h=5);
 
             difference() {
 
-                linear_extrude(height=7.6, convexity=4) difference() {
+                linear_extrude(height=7.6) difference() {
                     outline();
        /*             btn_pos() circle(d=29);
                     smlbtn_pos() offset(r=4) hull() smlbtn() circle(d=5.2);
@@ -59,9 +57,9 @@ module front() {
                 mirror([1, 0, 0]) control_cutout(false);
             }
         }
-        translate([0, 0, 1.5]) linear_extrude(height=20, convexity=4) screw_pos() circle(d=1.7);
+        translate([0, 0, 1.5]) linear_extrude(height=20) screw_pos() circle(d=1.7);
 
-        translate([0, 0, -1]) linear_extrude(height=20, convexity=4) {
+        translate([0, 0, -1]) linear_extrude(height=20) {
             btn_pos() circle(d=button_hole_diameter);
             dpad_pos() circle(d=button_hole_diameter);
 
@@ -69,11 +67,7 @@ module front() {
             analog_pos() circle(d=analog_hole_diameter);
         }
 
-      /*  translate([0, 0, -0.01]) {
-            analog_pos() cylinder(d1=22.5, d2=22, h=0.25);
-        }*/
-
-        translate([0, 0, 1.6]) linear_extrude(height=20, convexity=4) {
+        translate([0, 0, 1.6]) linear_extrude(height=20) {
             btn_pos() {
                 square([8, 32], center=true);
                 square([32, 8], center=true);
@@ -88,7 +82,7 @@ module front() {
             }
         }
 
-        translate([0, 0, 3.6]) linear_extrude(height=20, convexity=4) {
+        translate([0, 0, 3.6]) linear_extrude(height=20) {
             analog_pos() {
                 translate([0, -6, 0]) square([8, 30], center=true);
                 square([32, 8], center=true);
