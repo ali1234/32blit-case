@@ -70,20 +70,20 @@ module buttons() {
 }
 
 
-
 module button_insert() {
-
-    front_thickness = 1.2;
-
-    translate([0, 0, front_thickness]) difference() {
-        linear_extrude(height=1.6, convexity=2) offset(1) rubber() button_base();
-        translate([0, 0, -0.1]) linear_extrude(height=10, convexity=4) button_positions() offset(0.4) button_base();
-        translate([0, 0, 1.45]) cube([5.7, 4.8, 3], center=true);
-    }
-
+    front_thickness = 1.6;
     difference() {
-        base_insert(front_thickness);
+        union() {
+            base_insert(front_thickness);
+            translate([0, 0, front_thickness]) linear_extrude(height=1.4, convexity=2) offset(1) rubber() button_base();
+
+        }
+
         translate([0, 0, -0.1]) button_positions() cylinder(r=button_radius+0.4, h=10);
+        translate([0, 0, 1.4]) {
+            linear_extrude(height=10, convexity=4) button_positions() offset(0.35) button_base();
+            translate([0, 0, 1.8]) cube([5.7, 4.8, 3], center=true);
+        }
     }
 }
 
