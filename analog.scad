@@ -18,7 +18,7 @@ module analog_insert() {
             translate([0, -1, 0]) square([8, analog_hole_diameter], center=true);
             square([analog_hole_diameter+1, 8], center=true);
         }
-        analog();
+        offset(0.4) analog();
     }
 
 }
