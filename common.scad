@@ -19,6 +19,7 @@ button_colours = [[1.0, 0.1, 0.1], [1, 0.8, 0], [0.1, 0.3, 1], [0, 0.8, 0]];
 
 
 small_button_radius = 5.2/2;
+small_button_height = 3.2;
 small_button_letters = ["H", "M"];
 small_button_rotations = [180, 0];
 

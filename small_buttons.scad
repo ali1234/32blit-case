@@ -32,8 +32,8 @@ module small_button() {
     color("lightgrey") {
         union() {
             linear_extrude(height=1.2) small_button_base();
-            cylinder(r=small_button_radius, h=button_height);
-            translate([0, 0, button_height-0.0]) button_top(small_button_radius, small_button_letters[$which]);
+            cylinder(r=small_button_radius, h=small_button_height);
+            translate([0, 0, small_button_height-0.0]) button_top(small_button_radius, small_button_letters[$which]);
         }
     }
 }
