@@ -17,14 +17,14 @@ module small_button_hole() {
 }
 
 module small_rubber() {
-    offset(2) offset(-2) square([18.9, 9.1], center=true);
+    offset(2.75) offset(-2.75) square([19.1, 9], center=true);
 
 }
 
 
 module small_button_base() {
     difference() {
-        offset(0.5) offset(-0.5) square(6.0, center=true);
+        offset(0.5) offset(-0.5) square(5.9, center=true);
     }
 }
 
@@ -63,7 +63,7 @@ module small_button_insert() {
     }
 
     difference() {
-        translate([0, 0, 1]) linear_extrude(height=1.6, convexity=2) offset(-0.5) small_rubber();
+        translate([0, 0, 1]) linear_extrude(height=2.2, convexity=2) offset(-0.8) small_rubber();
         linear_extrude(height=10, convexity=2) small_button_positions() offset(0.35) small_button_base();
         //linear_extrude(height=10) offset(-1.5) small_rubber();
 
