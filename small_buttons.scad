@@ -25,7 +25,7 @@ module small_rubber() {
 module small_button_base() {
 
     difference() {
-        square(6, center=true);
+        square(small_button_radius*2, center=true);
 /*
         rotate(small_button_rotations[$which]) {
             translate([8.5, 0, 0]) square(10, center=true);
