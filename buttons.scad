@@ -71,7 +71,7 @@ module buttons() {
 
 
 module button_insert() {
-    front_thickness = 1.6;
+    front_thickness = 1.8;
     difference() {
         union() {
             base_insert(front_thickness);
@@ -112,5 +112,5 @@ else if (WHICH == "insert") {
 }
 else if (1) {
     translate([0, 0, 3]) rotate([0, 180, 0]) button_insert();
-    button_positions() button();
+    //button_positions() button();
 }
