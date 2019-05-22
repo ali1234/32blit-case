@@ -17,10 +17,10 @@ analog_%.stl: analog.scad $(INCLUDES)
 button_%.stl: buttons.scad $(INCLUDES)
 	/home/al/Source/openscad/openscad -D RES=64 -D WHICH=\"$*\" -o $@ $<
 
-small_button_%.stl: buttons.scad $(INCLUDES)
+small_button_%.stl: small_buttons.scad $(INCLUDES)
 	/home/al/Source/openscad/openscad -D RES=64 -D WHICH=\"$*\" -o $@ $<
 
-dpad_%.stl: buttons.scad $(INCLUDES)
+dpad_%.stl: dpad.scad $(INCLUDES)
 	/home/al/Source/openscad/openscad -D RES=64 -D WHICH=\"$*\" -o $@ $<
 
 
