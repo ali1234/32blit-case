@@ -28,46 +28,30 @@ module front() {
     difference() {
         union() {
             screw_pos() cylinder(r=2, h=6);
-
-            linear_extrude(height=3.5) {
-
-                btn_pos() circle(d=button_hole_diameter+2);
-                dpad_pos() circle(d=button_hole_diameter+2);
-
-                smlbtn_pos() offset(r=5) hull() smlbtn() circle(d=5.2);
-            }
-
+            btn_pos() cylinder(d=button_hole_diameter+2, h=3.5);
+            dpad_pos() cylinder(d=button_hole_diameter+2, h=3.5);
+            smlbtn_pos() linear_extrude(height=3.5) offset(r=5) hull() smlbtn() circle(d=5.2);
             analog_pos() cylinder(d=24.5, h=5);
-
             difference() {
-
-                linear_extrude(height=7.6) difference() {
-                    outline();
-       /*             btn_pos() circle(d=29);
-                    smlbtn_pos() offset(r=4) hull() smlbtn() circle(d=5.2);
-                    dpad_pos() circle(d=29);
-                    analog_pos() circle(d=22);*/
-                }
+                linear_extrude(height=7.6) outline();
 
                 led_pos() translate([0, 1, 3.5]) cube([5, 3, 6], center=true);
                 translate([0, 0, 6.0]) linear_extrude(height=5) outline();
                 translate([0, 0, 1.01]) screen();
-
                 control_cutout(true);
                 mirror([1, 0, 0]) control_cutout(false);
             }
         }
-        translate([0, 0, 1.5]) linear_extrude(height=20) screw_pos() circle(d=1.7);
+        translate([0, 0, 1.5]) screw_pos() cylinder(d=1.7, h=20);
 
-        translate([0, 0, -1]) linear_extrude(height=20) {
-            btn_pos() circle(d=button_hole_diameter);
-            dpad_pos() circle(d=button_hole_diameter);
-
-            smlbtn_pos() offset(r=4) hull() smlbtn() circle(d=5.2);
-            analog_pos() circle(d=analog_hole_diameter);
+        translate([0, 0, -1]) {
+            btn_pos() cylinder(d=button_hole_diameter, h=20);
+            dpad_pos() cylinder(d=button_hole_diameter, h=20);
+            analog_pos() cylinder(d=analog_hole_diameter, h=20);
+            smlbtn_pos() linear_extrude(height=20) offset(r=4) hull() smlbtn() circle(d=5.2);
         }
 
-        translate([0, 0, 1.6]) linear_extrude(height=20) {
+        translate([0, 0, 1.6]) linear_extrude(height=20, convexity=2) {
             btn_pos() {
                 square([8, 32], center=true);
                 square([32, 8], center=true);
