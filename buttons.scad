@@ -82,13 +82,7 @@ module button_insert() {
     }
 
     difference() {
-        union() {
-            cylinder(d=button_hole_diameter-0.3, h=front_thickness);
-            linear_extrude(height=front_thickness, convexity=2) {
-                square([8, 30], center=true);
-                square([30, 8], center=true);
-            }
-        }
+        base_insert(front_thickness);
         translate([0, 0, -0.1]) button_positions() cylinder(r=button_radius+0.4, h=10);
     }
 }

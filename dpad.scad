@@ -30,14 +30,8 @@ module dpad_insert() {
 */
 
     difference() {
-        union() {
-            cylinder(d=button_hole_diameter-0.3, h=front_thickness);
-            linear_extrude(height=front_thickness, convexity=2) {
-                square([8, 30], center=true);
-                square([30, 8], center=true);
-            }
-        }
-        translate([0, 0, -0.1]) linear_extrude(height=20) dpad();
+        base_insert(front_thickness);
+        translate([0, 0, -0.1]) linear_extrude(height=20, convexity=2) dpad();
     }
 }
 

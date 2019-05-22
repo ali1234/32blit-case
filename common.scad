@@ -23,6 +23,25 @@ small_button_letters = ["H", "M"];
 small_button_rotations = [180, 0];
 
 
+module twobytwo() {
+    children();
+    rotate(90) children();
+    rotate(180) children();
+    rotate(270) children();
+}
+
+module base_insert(thickness) {
+    cylinder(d=button_hole_diameter-0.3, h=thickness);
+    linear_extrude(height=thickness, convexity=2) {
+        square([8, 30], center=true);
+        square([30, 8], center=true);
+    }
+    twobytwo() translate([7.5, 7.5, 0]) intersection() {
+        cylinder(d=6, h=5);
+        cube(10);
+    }
+}
+
 module outline() {
     offset(5) offset(-5) square([w, h], center=true);
 }
