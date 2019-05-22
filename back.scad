@@ -33,8 +33,8 @@ module back() {
                     }
                 }
 
-                translate([0, 0, 1.5]) linear_extrude(height=20) screw_pos(false) circle(d=2.2);
-                translate([0, 0, -screw_thickness]) linear_extrude(height=back_depth+back_thickness) screw_pos(false) circle(d=5.8);
+                translate([0, 0, 1.5]) screw_pos(false) cylinder(d=2.2, h=20);
+                translate([0, 0, -screw_thickness]) screw_pos(false) cylinder(d=5.8, h=back_depth+back_thickness);
             }
         }
 
