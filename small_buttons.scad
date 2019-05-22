@@ -1,7 +1,7 @@
 // Copyright 2019 a.j.buxton@gmail.com
 // CC BY-NC-ND 4.0
 
-include <util.scad>;
+
 include <common.scad>;
 
 use <buttons.scad>;
