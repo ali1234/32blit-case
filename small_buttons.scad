@@ -17,29 +17,15 @@ module small_button_hole() {
 }
 
 module small_rubber() {
-    hull() small_button_positions() small_button_base();
+    offset(2) offset(-2) square([18.9, 9.1], center=true);
 
 }
 
 
 module small_button_base() {
-
     difference() {
-        square(small_button_radius*2, center=true);
-/*
-        rotate(small_button_rotations[$which]) {
-            translate([8.5, 0, 0]) square(10, center=true);
-            translate([-8, 0, 0]) square(10, center=true);
-
-            translate([-2.3, 0, 0]) {
-                    translate([0, 4.5, 0]) circle(d=1.5);
-                    translate([0, -4.5, 0]) circle(d=1.5);
-            }
-        }
-
- */
+        offset(0.5) offset(-0.5) square(6.0, center=true);
     }
-
 }
 
 module small_button() {
@@ -59,24 +45,28 @@ module small_buttons() {
 
 
 module small_button_insert() {
-
-    front_thickness = 1.2;
-
-    translate([0, 0, front_thickness]) difference() {
-        linear_extrude(height=1.6, convexity=2) offset(1) small_rubber() small_button_base();
-        translate([0, 0, -0.1]) linear_extrude(height=10, convexity=4) small_button_positions() offset(0.4) small_button_base();
-
-    }
-
+    front_thickness = 2;
     difference() {
         union() {
-            linear_extrude(height=front_thickness) offset(r=-0.15) small_button_hole();
+            linear_extrude(height=4.4) offset(r=-0.15) small_button_hole();
             linear_extrude(height=front_thickness, convexity=2) {
                 square([8, 16], center=true);
                 square([26, 8], center=true);
             }
         }
+//        linear_extrude(height=4.4, convexity=2) offset(2) offset(-2) square([19, 9], center=true);
         translate([0, 0, -0.1]) small_button_positions() cylinder(r=small_button_radius+0.4, h=10);
+        translate([0, 0, 1.4]) {
+            linear_extrude(height=10, convexity=4) small_button_positions() offset(0.35) small_button_base();
+        }
+        translate([0, 0, 2]) linear_extrude(height=20, convexity=2) small_rubber();
+    }
+
+    difference() {
+        translate([0, 0, 1]) linear_extrude(height=1.6, convexity=2) offset(-0.5) small_rubber();
+        linear_extrude(height=10, convexity=2) small_button_positions() offset(0.35) small_button_base();
+        //linear_extrude(height=10) offset(-1.5) small_rubber();
+
     }
 }
 
