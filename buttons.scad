@@ -111,6 +111,6 @@ else if (WHICH == "insert") {
     button_insert();
 }
 else if (1) {
-    translate([0, 0, -10]) rotate([0, 180, 0]) button_insert();
+    translate([0, 0, 3]) rotate([0, 180, 0]) button_insert();
     button_positions() button();
 }
