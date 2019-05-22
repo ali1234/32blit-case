@@ -54,7 +54,7 @@ module button_top() {
     difference() {
         //hull() rotate_extrude() translate([button_radius-1, 0]) circle(r=1);
         scale([1, 1, 0.25]) sphere(r=button_radius);
-        translate([0, 0, button_radius*0.10]) linear_extrude(height=10) text_offset() text(button_letters[$which], size=4, halign="center", valign="center");
+        translate([0, 0, button_radius*0.10]) linear_extrude(height=10, convexity=4) text_offset() text(button_letters[$which], size=4, halign="center", valign="center");
     }
 }
 
@@ -81,22 +81,22 @@ module button_insert() {
 
     translate([0, 0, front_thickness]) difference() {
         union() {
-            linear_extrude(height=1.6) offset(1) rubber() button_base();
+            linear_extrude(height=1.6, convexity=2) offset(1) rubber() button_base();
         }
 
-        translate([0, 0, -0.1])linear_extrude(height=10) button_positions() offset(0.4) button_base();
+        translate([0, 0, -0.1]) linear_extrude(height=10, convexity=4) button_positions() offset(0.4) button_base();
         translate([0, 0, 1.45]) cube([5.7, 4.8, 3], center=true);
     }
 
     difference() {
         union() {
             cylinder(d=button_hole_diameter-0.3, h=front_thickness);
-            linear_extrude(height=front_thickness) {
+            linear_extrude(height=front_thickness, convexity=2) {
                 square([8, 30], center=true);
                 square([30, 8], center=true);
             }
         }
-        translate([0, 0, -0.1]) linear_extrude(height=10) button_positions() offset(0.4) circle(r=button_radius);
+        translate([0, 0, -0.1]) button_positions() cylinder(r=button_radius+0.4, h=10);
     }
 }
 
