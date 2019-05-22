@@ -5,21 +5,22 @@ w = 150.5;
 h = 65;
 
 
-button_radius = 8.4/2;
-button_height = 4.5;
-
 // abxy and dpad holes
 button_hole_diameter = 29;
 // analog stick
 analog_hole_diameter = 22.5;
 
+button_radius = 8.4/2;
+button_height = 4.5;
 
 button_letters = ["A", "B", "X", "Y"];
 button_rotations = [180, 90, 270, 0];
-button_colours = ["red", "yellow", "lightblue", "lightgreen"];
+button_colours = [[1.0, 0.1, 0.1], [1, 0.8, 0], [0.1, 0.3, 1], [0, 0.8, 0]];
 
 
-
+small_button_radius = 5.2/2;
+small_button_letters = ["H", "M"];
+small_button_rotations = [180, 0];
 
 
 module outline() {
@@ -89,16 +90,6 @@ module screw_pos(internal=true) {
 // TODO: Remove these
 
 
-module dpad() {
-    offset(r=0.5) offset(r=-0.5) offset(r=-0.5) offset(r=0.5) union() {
-        square([6.5, 19], center=true);
-        square([19, 6.5], center=true);
-    }
-}
 
-module smlbtn() {
-    translate([9.5/2, 0]) children(); //circle(d=5.2);
-    translate([-9.5/2, 0]) children();
 
-}
 

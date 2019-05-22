@@ -1,7 +1,6 @@
 // Copyright 2019 a.j.buxton@gmail.com
 // CC BY-NC-ND 4.0
 
-include <util.scad>;
 include <common.scad>;
 
 
@@ -43,18 +42,15 @@ module button_base() {
 }
 
 
-module text_offset() {
-    amt = 0.15;
+module text_offset(amt) {
     offset(amt) offset(amt) offset(-amt) children();
-
 }
 
 
-module button_top() {
+module button_top(r, label="?") {
     difference() {
-        //hull() rotate_extrude() translate([button_radius-1, 0]) circle(r=1);
-        scale([1, 1, 0.25]) sphere(r=button_radius);
-        translate([0, 0, button_radius*0.10]) linear_extrude(height=10, convexity=4) text_offset() text(button_letters[$which], size=4, halign="center", valign="center");
+        scale([1, 1, 0.25]) sphere(r=r);
+        translate([0, 0, r*0.10]) linear_extrude(height=10, convexity=4) text_offset(0.15*r/button_radius) text(label, size=4*r/button_radius, halign="center", valign="center");
     }
 }
 
@@ -64,7 +60,7 @@ module button() {
         union() {
             linear_extrude(height=1.2) button_base();
             cylinder(r=button_radius, h=button_height);
-            translate([0, 0, button_height-0.0]) button_top();
+            translate([0, 0, button_height-0.0]) button_top(button_radius, button_letters[$which]);
         }
     }
 }
@@ -80,10 +76,7 @@ module button_insert() {
     front_thickness = 1.2;
 
     translate([0, 0, front_thickness]) difference() {
-        union() {
-            linear_extrude(height=1.6, convexity=2) offset(1) rubber() button_base();
-        }
-
+        linear_extrude(height=1.6, convexity=2) offset(1) rubber() button_base();
         translate([0, 0, -0.1]) linear_extrude(height=10, convexity=4) button_positions() offset(0.4) button_base();
         translate([0, 0, 1.45]) cube([5.7, 4.8, 3], center=true);
     }

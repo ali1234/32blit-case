@@ -3,6 +3,8 @@
 
 include <common.scad>;
 
+use <small_buttons.scad>;
+
 RES = undef;
 
 $fn = RES ? RES : 16;
@@ -30,7 +32,7 @@ module front() {
             screw_pos() cylinder(r=2, h=6);
             btn_pos() cylinder(d=button_hole_diameter+2, h=3.5);
             dpad_pos() cylinder(d=button_hole_diameter+2, h=3.5);
-            smlbtn_pos() linear_extrude(height=3.5) offset(r=5) hull() smlbtn() circle(d=5.2);
+            smlbtn_pos() linear_extrude(height=3.5) offset(r=1) small_button_hole();
             analog_pos() cylinder(d=24.5, h=5);
             difference() {
                 linear_extrude(height=7.6) outline();
@@ -48,7 +50,7 @@ module front() {
             btn_pos() cylinder(d=button_hole_diameter, h=20);
             dpad_pos() cylinder(d=button_hole_diameter, h=20);
             analog_pos() cylinder(d=analog_hole_diameter, h=20);
-            smlbtn_pos() linear_extrude(height=20) offset(r=4) hull() smlbtn() circle(d=5.2);
+            smlbtn_pos() linear_extrude(height=20) small_button_hole();
         }
 
         translate([0, 0, 1.6]) linear_extrude(height=20, convexity=2) {
