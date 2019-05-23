@@ -70,8 +70,8 @@ module front() {
 
         translate([0, 0, 3.6]) linear_extrude(height=20) {
             analog_pos() {
-                translate([0, -6, 0]) square([8, 30], center=true);
-                square([32, 8], center=true);
+                translate([0, -6, 0]) square([8, 28], center=true);
+                square([28, 8], center=true);
             }
         }
     }
