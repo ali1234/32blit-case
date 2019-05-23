@@ -37,8 +37,8 @@ module base_insert(thickness, extra=0) {
         square([7.9, 30], center=true);
         square([30, 7.9], center=true);
     }
-    twobytwo() translate([6.7, 6.7, 0]) intersection() {
-        cylinder(r=4.75, h=4.4);
+    twobytwo() translate([6.9, 6.9, 0]) intersection() {
+        cylinder(r=4.4, h=4.4);
         cube(10);
     }
     if (extra > 0) twobytwo() {
