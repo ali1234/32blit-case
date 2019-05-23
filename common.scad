@@ -19,7 +19,7 @@ button_colours = [[1.0, 0.1, 0.1], [1, 0.8, 0], [0.1, 0.3, 1], [0, 0.8, 0]];
 
 
 small_button_radius = 5.2/2;
-small_button_height = 3.2;
+small_button_height = 3.8;
 small_button_letters = ["H", "M"];
 small_button_rotations = [180, 0];
 
@@ -31,15 +31,18 @@ module twobytwo() {
     rotate(270) children();
 }
 
-module base_insert(thickness) {
-    cylinder(d=button_hole_diameter-0.3, h=thickness);
+module base_insert(thickness, extra=0) {
+    translate([0, 0, -extra]) cylinder(d=button_hole_diameter-0.5, h=thickness+extra);
     linear_extrude(height=thickness, convexity=2) {
-        square([8, 30], center=true);
-        square([30, 8], center=true);
+        square([7.9, 30], center=true);
+        square([30, 7.9], center=true);
     }
-    twobytwo() translate([6.85, 6.85, 0]) intersection() {
-        cylinder(r=4.4, h=4.4);
+    twobytwo() translate([6.7, 6.7, 0]) intersection() {
+        cylinder(r=4.75, h=4.4);
         cube(10);
+    }
+    if (extra > 0) twobytwo() {
+        translate([15, -4, -extra]) cube([1, 8, extra+2]);
     }
 }
 

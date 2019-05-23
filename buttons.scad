@@ -76,10 +76,9 @@ module button_insert() {
         union() {
             base_insert(front_thickness);
             translate([0, 0, front_thickness]) linear_extrude(height=1.2, convexity=2) offset(1) rubber() button_base();
-
         }
 
-        translate([0, 0, -0.1]) button_positions() cylinder(r=button_radius+0.4, h=10);
+        translate([0, 0, -5.1]) button_positions() cylinder(r=button_radius+0.4, h=20);
         translate([0, 0, 1.4]) {
             linear_extrude(height=10, convexity=4) button_positions() offset(0.35) button_base();
             translate([0, 0, 1.6]) cube([5.7, 4.8, 3], center=true);
