@@ -3,7 +3,7 @@
 
 $fn=64;
 
-module twobytwo() {
+module mirrorf() {
     children();
     mirror([1, 0]) children();
     mirror([0, 1]) children();
@@ -26,7 +26,7 @@ module dpad_half_r() {
     d = (x-7.0)/2;
 
     hull() {
-        twobytwo() elipse(a, b, c, d);
+        mirrorf() elipse(a, b, c, d);
     }
 }
 
