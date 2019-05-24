@@ -7,7 +7,7 @@ use <small_buttons.scad>;
 
 RES = undef;
 
-$fn = RES ? RES : 16;
+$fn = RES ? RES : 32;
 
 
 module screen() {

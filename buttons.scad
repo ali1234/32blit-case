@@ -90,7 +90,7 @@ module button_insert() {
 
 RES = undef;
 
-$fn = RES ? RES : 16;
+$fn = RES ? RES : 32;
 
 
 WHICH = undef;
@@ -111,5 +111,5 @@ else if (WHICH == "insert") {
 }
 else if (1) {
     translate([0, 0, 3]) rotate([0, 180, 0]) button_insert();
-    //button_positions() button();
+    button_positions() button();
 }

@@ -5,9 +5,7 @@ include <common.scad>;
 
 RES = undef;
 
-$fn = RES ? RES : 16;
-
-
+$fn = RES ? RES : 32;
 
 module dpad_outline() {
     offset(r=0.5) offset(r=-0.5) offset(r=-0.5) offset(r=0.5) union() {

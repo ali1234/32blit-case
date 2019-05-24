@@ -5,7 +5,7 @@ include <common.scad>;
 
 RES = undef;
 
-$fn = RES ? RES : 16;
+$fn = RES ? RES : 32;
 
 
 back_depth=5.6;
