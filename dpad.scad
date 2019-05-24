@@ -9,7 +9,7 @@ $fn = RES ? RES : 16;
 
 
 
-module dpad() {
+module dpad_outline() {
     offset(r=0.5) offset(r=-0.5) offset(r=-0.5) offset(r=0.5) union() {
         square([6.5, 19], center=true);
         square([19, 6.5], center=true);
@@ -68,9 +68,52 @@ module dpad_insert() {
 
         translate([0, 0, front_thickness]) cylinder(d=13, h=10);
 
-        translate([0, 0, -0.1]) linear_extrude(height=20, convexity=2) dpad();
+        translate([0, 0, -0.1]) linear_extrude(height=20, convexity=2) dpad_outline();
     }
 }
 
 
-dpad_insert();
+module dpad() {
+
+    height_before_rounding = 7;
+
+    difference() {
+        union() {
+            linear_extrude(height=height_before_rounding, convexity=2) offset(0.4) offset(-0.7) dpad_outline();
+            cylinder(d=12, h=0.3);
+        }
+        translate([0, 0, height_before_rounding]) scale([1.7, 1.7, 0.3]) sphere(d=20);
+        translate([0, 0, -1]) cylinder(d=4, h=2.5);
+    }
+}
+
+
+module dpad_nub() {
+
+    cylinder(d=3.9, h=2.4);
+    hull() {
+        translate([0, 0, 2]) sphere(d=2);
+        translate([0, 0, 3.6]) sphere(d=2);
+    }
+
+}
+
+
+
+WHICH = undef;
+if (WHICH == "insert") {
+    dpad_insert();
+}
+else if (WHICH == "dpad") {
+    dpad();
+}
+else if (WHICH == "nub") {
+    dpad_nub();
+}
+else {
+    dpad_insert();
+    translate([0, 0, 10]) dpad();
+    translate([0, 0, 20]) dpad_nub();
+}
+
+
