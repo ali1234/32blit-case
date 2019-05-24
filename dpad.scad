@@ -77,18 +77,19 @@ module dpad() {
 
     difference() {
         union() {
-            linear_extrude(height=height_before_rounding, convexity=2) offset(0.4) offset(-0.7) dpad_outline();
+            linear_extrude(height=height_before_rounding, convexity=2, scale=0.94) offset(0.4) offset(-0.7) dpad_outline();
             cylinder(d=12, h=0.3);
         }
         translate([0, 0, height_before_rounding]) scale([1.7, 1.7, 0.3]) sphere(d=20);
-        translate([0, 0, -1]) cylinder(d=4, h=2.5);
+        translate([0, 0, -1]) cylinder(d=2.3, h=2.5);
     }
 }
 
 
 module dpad_nub() {
 
-    cylinder(d=3.9, h=2.4);
+    //cylinder(d=3.9, h=2.4);
+    cylinder(d=2, h=2.4);
     hull() {
         translate([0, 0, 2]) sphere(d=2);
         translate([0, 0, 3.6]) sphere(d=2);
