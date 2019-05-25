@@ -10,7 +10,7 @@ use <analog.scad>;
 use <buttons.scad>;
 use <small_buttons.scad>;
 
-main_colour = "white";
+main_colour = "lightgrey";
 insert_colour = "grey";
 
 translate([0, 0, -6.6]) mirror([1, 0]) color(main_colour) back($fn=RES);
