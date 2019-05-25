@@ -47,6 +47,13 @@ module back() {
         // debug
         translate([w/2 - 104.75, h/2, 5.0]) cube([2.54*6.05, 10, 4.5], center=true);
     }
+
+    mirrorf() {
+        translate([w/2, h/4.5]) rotate(-90) support();
+        translate([w/2.7, h/2]) support();
+        translate([w/12, h/2]) support();
+    }
+
 }
 
 

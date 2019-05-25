@@ -31,6 +31,15 @@ module twobytwo() {
     rotate(270) children();
 }
 
+
+module mirrorf() {
+    children();
+    mirror([1, 0]) children();
+    mirror([0, 1]) children();
+    mirror([1, 0]) mirror([0, 1]) children();
+}
+
+
 module base_insert(thickness, extra=0) {
     translate([0, 0, -extra]) cylinder(d=button_hole_diameter-0.5, h=thickness+extra);
     linear_extrude(height=thickness, convexity=2) {
@@ -48,6 +57,15 @@ module base_insert(thickness, extra=0) {
 
 module outline() {
     offset(5) offset(-5) square([w, h], center=true);
+}
+
+
+module support() {
+    scale(0.3) translate([0, -9.5]) intersection() {
+        cube(10);
+        rotate([-45, 0, 0]) cube(20);
+    }
+
 }
 
 
