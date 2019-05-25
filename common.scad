@@ -61,11 +61,10 @@ module outline() {
 
 
 module support() {
-    scale(0.3) translate([0, -9.5]) intersection() {
+    scale(0.3) translate([-5, -9.5]) intersection() {
         cube(10);
         rotate([-45, 0, 0]) cube(20);
     }
-
 }
 
 
@@ -73,8 +72,7 @@ module shell(height=7.6) {
     difference() {
         linear_extrude(height=height, convexity=2) difference() {
             offset(1.6) outline();
-            outline();
-
+            offset(-0.005) outline();
         }
     }
 }

@@ -28,7 +28,7 @@ module front_assembly() {
         translate([0, 0, 1.5]) color(insert_colour) small_button_insert($fn=RES);
     }
     dpad_pos() {
-        translate([0, 0, 4.5]) rotate([0, 180, 0]) color([0.1, 0.1, 0.1]) dpad($fn=RES);
+        translate([0, 0, 3.75]) rotate([0, 180, 0]) color([0.1, 0.1, 0.1]) dpad($fn=RES);
         translate([0, 0, 1.5]) color(insert_colour) dpad_insert($fn=RES);
     }
     analog_pos() {

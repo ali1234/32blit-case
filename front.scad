@@ -24,16 +24,39 @@ module control_cutout(l) {
 }
 
 
+module support_ring(d) {
+    rotate(45) twobytwo() {
+        translate([d/2, 0, 0]) rotate(90) support();
+    }
+}
+
+
 module front() {
     shell();
 
     difference() {
         union() {
             screw_pos() cylinder(r=2, h=6);
-            btn_pos() cylinder(d=button_hole_diameter+2, h=3.5);
-            dpad_pos() cylinder(d=button_hole_diameter+2, h=3.5);
-            smlbtn_pos() linear_extrude(height=3.5) offset(r=1) small_button_hole();
-            analog_pos() cylinder(d=24.5, h=5);
+
+            btn_pos() {
+                cylinder(d=button_hole_diameter+2, h=3.5);
+                support_ring(button_hole_diameter+2);
+            }
+            dpad_pos() {
+                cylinder(d=button_hole_diameter+2, h=3.5);
+                support_ring(button_hole_diameter+2);
+            }
+
+            analog_pos() {
+                cylinder(d=24.5, h=5);
+                translate([0, 0, 1]) support_ring(24.5);
+            }
+
+            smlbtn_pos() {
+                linear_extrude(height=3.5) offset(r=1) small_button_hole();
+                scale([1.0, 0.72, 1.1]) support_ring(24.5);
+            }
+
             difference() {
                 linear_extrude(height=7.6) outline();
 
