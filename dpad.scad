@@ -56,7 +56,7 @@ module dpad_insert() {
             }
         }
 
-        translate([0, 0, front_thickness]) cylinder(d=13, h=10);
+        translate([0, 0, front_thickness-0.2]) cylinder(d=13, h=10);
 
         translate([0, 0, -0.1]) linear_extrude(height=20, convexity=2) dpad_outline();
     }
@@ -69,11 +69,14 @@ module dpad() {
 
     difference() {
         union() {
-            linear_extrude(height=height_before_rounding, convexity=2, scale=0.94) offset(0.4) offset(-0.7) dpad_outline();
-            cylinder(d=12, h=0.3);
+            intersection() {
+                linear_extrude(height=height_before_rounding, convexity=2, scale=0.93) offset(0.4) offset(-0.75) dpad_outline();
+                linear_extrude(height=height_before_rounding, convexity=2, scale=1) offset(0.4) offset(-0.8) dpad_outline();
+            }
+            cylinder(d=12, h=0.5);
         }
         translate([0, 0, height_before_rounding]) scale([1.7, 1.7, 0.3]) sphere(d=20);
-        translate([0, 0, -1]) cylinder(d=2.3, h=2.5);
+        translate([0, 0, -1]) cylinder(d=2.7, h=4);
     }
 }
 
@@ -81,10 +84,10 @@ module dpad() {
 module dpad_nub() {
 
     //cylinder(d=3.9, h=2.4);
-    cylinder(d=2, h=2.4);
+    cylinder(d=2.4, h=2.4);
     hull() {
-        translate([0, 0, 2]) sphere(d=2);
-        translate([0, 0, 3.6]) sphere(d=2);
+        translate([0, 0, 2.4]) sphere(d=2.4);
+        translate([0, 0, 3.4]) sphere(d=2);
     }
 
 }
