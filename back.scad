@@ -33,25 +33,32 @@ module back() {
                     }
                 }
 
-                translate([0, 0, 1.5]) screw_pos(false) cylinder(d=2.2, h=20);
+                translate([0, 0, 1.5]) screw_pos(false) cylinder(d=2.3, h=20);
                 translate([0, 0, -screw_thickness]) screw_pos(false) cylinder(d=5.8, h=back_depth+back_thickness);
             }
         }
 
         // usb
-        translate([w/2 - 55, h/2, 5.1]) cube([7.2, 10, 3.1], center=true);
+        translate([w/2 - 55.1, h/2, 5.1]) cube([7.8, 10, 3.1], center=true);
         // reset
-        translate([w/2 - 70, h/2, 5.1]) cube([4, 10, 3.1], center=true);
+        translate([w/2 - 70.1, h/2, 5.1]) cube([4.2, 10, 3.1], center=true);
         // SD
         translate([w/2 - 83, h/2, 5.5]) cube([12, 10, 2.3], center=true);
         // debug
-        translate([w/2 - 104.75, h/2, 5.0]) cube([2.54*6.05, 10, 4.5], center=true);
+//        translate([w/2 - 104.75, h/2, 5.0]) cube([2.54*6.05, 10, 4.5], center=true);
+        translate([w/2 - 105.25, h/2, 5.0]) cube([2.54*6.3, 10, 4.5], center=true);
     }
 
     mirrorf() {
         translate([w/2, h/4.5]) rotate(-90) support();
-        translate([w/2.7, h/2]) support();
-        translate([w/12, h/2]) support();
+        translate([6*w/17, h/2]) support();
+        translate([2*w/17, h/2]) support();
+
+        scale([1, 1, 1.25]) translate([0, 0, 1]) {
+            translate([w/4, h/4.5]) cube([w/2, 0.75, 1], center=true);
+            translate([6*w/17, h/4]) cube([0.75, h/2, 1], center=true);
+            translate([2*w/17, h/4]) cube([0.75, h/2, 1], center=true);
+        }
     }
 
 }
