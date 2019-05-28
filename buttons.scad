@@ -50,7 +50,8 @@ module text_offset(amt) {
 module button_top(r, label="?") {
     difference() {
         scale([1, 1, 0.25]) sphere(r=r);
-        translate([0, 0, r*0.10]) linear_extrude(height=10, convexity=4) text_offset(0.15*r/button_radius) text(label, size=4*r/button_radius, halign="center", valign="center");
+        translate([0, 0, r*0.08]) linear_extrude(height=10, convexity=4) text_offset(0.2*r/button_radius) text(label, size=4*r/button_radius, halign="center", valign="center");
+        translate([0, 0, 5.75]) cube([10, 10, 10], center=true);
     }
 }
 
