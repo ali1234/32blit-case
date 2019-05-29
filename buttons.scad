@@ -56,12 +56,16 @@ module button_top(r, label="?") {
 }
 
 
-module button() {
+module button(letter=true) {
     color(button_colours[$which]) {
         union() {
             linear_extrude(height=1.2) button_base();
             cylinder(r=button_radius, h=button_height);
-            translate([0, 0, button_height-0.0]) button_top(button_radius, button_letters[$which]);
+            if (letter) {
+                translate([0, 0, button_height-0.0]) button_top(button_radius, button_letters[$which]);
+            } else {
+                translate([0, 0, button_height-0.0]) button_top(button_radius, " ");
+            }
         }
     }
 }
@@ -106,6 +110,9 @@ else if (WHICH == "X") {
 }
 else if (WHICH == "Y") {
     button($which = 3);
+}
+else if (WHICH == "blank") {
+    button(letter = false, $which = 0);
 }
 else if (WHICH == "insert") {
     button_insert();
