@@ -37,16 +37,16 @@ module back() {
                 translate([0, 0, -screw_thickness]) screw_pos(false) cylinder(d=5.8, h=back_depth+back_thickness);
             }
             translate([w/2 - 76.5, h/2, 3.4]) cube([1.2, 3, 6.4], center=true);
-            translate([w/2 - 59.4, h/2, 3.4]) cube([1.2, 3, 6.4], center=true);
+            translate([w/2 - 59.6, h/2, 3.4]) cube([1.2, 3, 6.4], center=true);
             translate([w/2 - 64.4, h/2, 3.4]) cube([1.2, 3, 6.4], center=true);
             translate([w/2 - 93, h/2, 3.4]) cube([1.2, 3, 6.4], center=true);
             translate([w/2 - 105.2, h/2, 3.4]) cube([18.4, 3, 6.4], center=true);
             //translate([w/2 - 113.8, h/2, 3.4]) cube([1.2, 3, 6.4], center=true);
-            translate([w/2 - 50.8, h/2, 3.4]) cube([1.2, 3, 6.4], center=true);
+            translate([w/2 - 50.6, h/2, 3.4]) cube([1.2, 3, 6.4], center=true);
         }
 
         // usb
-        translate([w/2 - 55.1, h/2, 5.1]) cube([7.8, 10, 3.1], center=true);
+        translate([w/2 - 55.1, h/2, 5.1]) cube([8.2, 10, 3.1], center=true);
         // reset
         //translate([w/2 - 70.1, h/2, 5.1]) cube([4.2, 10, 3.1], center=true);
         translate([w/2 - 70.1, h/2, 4.8]) rotate([90, 0, 0]) cylinder(d=1.5, h=10, center=true);
@@ -60,11 +60,21 @@ module back() {
 
 
     translate([w/2 - 55.1, h/2.1, 0]) difference() {
-        cylinder(d=9.6, h=6.6);
-        cylinder(d=8, h=20, center=true);
+        cylinder(d=10, h=6.6);
+        cylinder(d=8.4, h=20, center=true);
         translate([-5, 0.1, -1]) cube(10);
         cube([10, 6, 5], center=true);
         cube([5, 10, 5], center=true);
+    }
+
+
+    translate([w/2 - 70.1, h/2, 0]) difference() {
+        cylinder(d=6, h=6);
+        cylinder(d=4.7, h=20, center=true);
+        translate([-10, 0.1, -1]) cube(20);
+        cube([20, 5, 7], center=true);
+        translate([5, -5, 0]) cube([9, 9, 7], center=true);
+        translate([-5, -5, 0]) cube([9, 9, 7], center=true);
     }
 
 
