@@ -36,7 +36,7 @@ module front() {
 
     difference() {
         union() {
-            screw_pos() cylinder(r=2, h=6);
+            screw_pos() cylinder(r=2, h=6.01);
 
             btn_pos() {
                 cylinder(d=button_hole_diameter+2, h=3.5);
@@ -60,9 +60,9 @@ module front() {
             difference() {
                 linear_extrude(height=7.6) outline();
 
-                translate([0, 1, 3.5]) led_pos() {
+                translate([0.1, 1, 3.5]) led_pos() {
                     cube([5, 3, 6], center=true);
-                    translate([0.1, 0, 0]) cylinder(d=2, h=10, center=true);
+                    cube([4, 2, 50], center=true);
                 }
                 translate([0, 0, 6.0]) linear_extrude(height=5) outline();
                 translate([0, 0, 1.01]) screen();
