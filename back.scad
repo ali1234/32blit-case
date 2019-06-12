@@ -24,7 +24,7 @@ module back() {
                         linear_extrude(height=back_depth+back_thickness) difference() {
                             outline();
                         }
-                        led_pos() translate([-1, 1, back_depth+back_thickness-0.2]) cube([6, 8, 6], center=true);
+                        led_pos() translate([-1, 1, back_depth+back_thickness-0.2]) cube([6, 8, 8], center=true);
                         difference() {
                             translate([0, 0, back_thickness]) linear_extrude(height=10) outline();
 

@@ -12,7 +12,7 @@ difference() {
 
     x=2.7;
 
-    y=9;
+    y=8.5;
 
     union() {
         difference() {
