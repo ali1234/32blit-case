@@ -3,7 +3,36 @@
 
 $fn = 64;
 
-cube([4.8, 2.8, 5.5], center=true);
-translate([0.1, 0, 4]) cylinder(d=1.8, h=5.5, center=true);
 
-translate([-0.6, -0.4, -3]) cube([3.6, 2, 4], center=true);
+module outline(y) {
+    cube([4.9, 2.9, y], center=true);
+}
+
+difference() {
+
+    x=2.7;
+
+    y=9;
+
+    union() {
+        difference() {
+            outline(y);
+            cube([3.9, 1.9, y-0.5], center=true);
+            translate([0, -1, 4.25]) cube([3.9, 2.9, 6.5], center=true);
+
+        }
+
+        intersection() {
+            outline(y);
+            union() {
+                translate([0, 1.3, (y/2)+0.7]) rotate([45, 0, 0]) cube([4.9, 4.9, 4.8], center=true);
+                translate([x, 0, 4]) cube([4, 4, 7], center=true);
+                translate([x+1.43, 0, 0.47]) rotate([0, 45, 0]) cube([4.9, 4.9, 4.8], center=true);
+            }
+        }
+    }
+    translate([x, 0, 4]) cube([3, 3, 6], center=true);
+
+    translate([0, -2, 4]) cube([5, 2, 6], center=true);
+}
+
