@@ -95,9 +95,9 @@ module smlbtn_pos() {
 }
 
 module led_pos() {
-    translate([-48.75, 30]) children();
-    translate([-56.75, 30]) children();
-    translate([-64.75, 30]) children();
+    translate([-48.6, 30]) children();
+    translate([-56.6, 30]) children();
+    translate([-64.6, 30]) children();
 }
 
 module screw_pos(internal=true) {

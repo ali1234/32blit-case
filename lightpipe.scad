@@ -10,7 +10,7 @@ module outline(y) {
 
 difference() {
 
-    x=2.7;
+    x=2.5;
 
     y=8.5;
 
@@ -33,6 +33,6 @@ difference() {
     }
     translate([x, 0, 4]) cube([3, 3, 6], center=true);
 
-    translate([0, -2, 4]) cube([5, 2, 6], center=true);
+    translate([0, -1.5, 2]) cube([5, 2, 2], center=true);
 }
 
