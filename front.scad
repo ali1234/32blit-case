@@ -60,7 +60,10 @@ module front() {
             difference() {
                 linear_extrude(height=7.6) outline();
 
-                led_pos() translate([0, 1, 3.5]) cube([5, 3, 6], center=true);
+                translate([0, 1, 3.5]) led_pos() {
+                    cube([5, 3, 6], center=true);
+                    translate([0.1, 0, 0]) cylinder(d=2, h=10, center=true);
+                }
                 translate([0, 0, 6.0]) linear_extrude(height=5) outline();
                 translate([0, 0, 1.01]) screen();
                 control_cutout(true);
