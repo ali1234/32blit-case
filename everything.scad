@@ -9,6 +9,7 @@ use <dpad.scad>;
 use <analog.scad>;
 use <buttons.scad>;
 use <small_buttons.scad>;
+use <lightpipe.scad>;
 
 main_colour = "lightgrey";
 insert_colour = "grey";
@@ -35,6 +36,9 @@ module front_assembly() {
     analog_pos() {
         color([0.2, 0.2, 0.2]) translate([0, 0, -2]) analog($fn=RES);
         color(insert_colour) translate([0, 0, 3.4]) analog_insert($fn=RES);
+    }
+    translate([0, 0, 4.5]) led_pos() color("white") {
+        lightpipe();
     }
 }
 
