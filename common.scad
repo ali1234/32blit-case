@@ -75,7 +75,7 @@ module shell(height=7.6) {
             offset(-0.005) outline();
         }
         translate([0, 0, height-1.6]) linear_extrude(height=height, convexity=2) {
-            translate([-21, 1.1, 0]) offset(1.1, $fn=2) offset(-1.1) square([39, h], center=true);
+            translate([21, 1.1, 0]) offset(1.1, $fn=2) offset(-1.1) square([40, h], center=true);
         }
     }
 }
