@@ -48,8 +48,8 @@ module front() {
             }
 
             analog_pos() {
-                cylinder(d=24.5, h=5);
-                translate([0, 0, 1]) support_ring(24.5);
+                cylinder(d=23, h=5);
+                translate([0, 0, 1]) support_ring(23);
             }
 
             smlbtn_pos() {

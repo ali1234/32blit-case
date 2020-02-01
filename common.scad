@@ -8,7 +8,7 @@ h = 65;
 // abxy and dpad holes
 button_hole_diameter = 29;
 // analog stick
-analog_hole_diameter = 22.5;
+analog_hole_diameter = 21;
 
 button_radius = 8.4/2;
 button_height = 4.5;
