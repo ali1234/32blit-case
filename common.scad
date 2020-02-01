@@ -89,6 +89,11 @@ module analog_pos() {
     translate([(w/2)-18.5, 20.25]) children();
 }
 
+module analog_supports() {
+    translate([7, 10]) children();
+    translate([-11, -7]) children();
+}
+
 module btn_pos() {
     translate([-57.9, 7.5]) children();
 }

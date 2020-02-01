@@ -48,8 +48,14 @@ module front() {
             }
 
             analog_pos() {
-                cylinder(d=23, h=5);
+                cylinder(d=23, h=4);
                 translate([0, 0, 1]) support_ring(23);
+                analog_supports() {
+                    difference() {
+                        cylinder(d=3.75, h=6.05);
+                        translate([0, 0, 2]) cylinder(d=1.2, h=7);
+                    }
+                }
             }
 
             smlbtn_pos() {
@@ -94,7 +100,7 @@ module front() {
             }
         }
 
-        translate([0, 0, 3.6]) linear_extrude(height=20) {
+        translate([0, 0, 2.6]) linear_extrude(height=20) {
             analog_pos() {
                 translate([0, -6, 0]) square([8, 28], center=true);
                 square([28, 8], center=true);
