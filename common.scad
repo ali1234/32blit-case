@@ -82,7 +82,7 @@ module shell(height=7.6) {
 
 
 module dpad_pos() {
-    translate([(w/2)-18.5, -9]) children();
+    translate([(w/2)-18.5, -8.75]) children();
 }
 
 module analog_pos() {
@@ -95,11 +95,11 @@ module analog_supports() {
 }
 
 module btn_pos() {
-    translate([-57.9, 7.5]) children();
+    translate([-57.9, 7.75]) children();
 }
 
 module smlbtn_pos() {
-    translate([-57.9, -20.5]) children();
+    translate([-57.9, -20.25]) children();
 }
 
 module led_pos() {
