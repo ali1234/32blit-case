@@ -1,7 +1,7 @@
 // Copyright 2019 a.j.buxton@gmail.com
 // CC BY-NC-ND 4.0
 
-w = 150.5;
+w = 151;
 h = 65;
 
 
@@ -56,7 +56,7 @@ module base_insert(thickness, extra=0) {
 }
 
 module outline() {
-    offset(5) offset(-5) square([w, h], center=true);
+    offset(3) offset(-3) square([w, h], center=true);
 }
 
 
@@ -71,52 +71,57 @@ module support() {
 module shell(height=7.6) {
     difference() {
         linear_extrude(height=height, convexity=2) difference() {
-            offset(1.6) outline();
+            offset(2) outline();
             offset(-0.005) outline();
+        }
+        translate([0, 0, height-1.6]) linear_extrude(height=height, convexity=2) {
+            translate([-21, 1.1, 0]) offset(1.1, $fn=2) offset(-1.1) square([39, h], center=true);
         }
     }
 }
 
 
 module dpad_pos() {
-    translate([(w/2)-17.5, -9]) children();
+    translate([(w/2)-18.5, -9]) children();
 }
 
 module analog_pos() {
-    translate([(w/2)-16.75, 21.25]) children();
+    translate([(w/2)-18.5, 20.25]) children();
 }
 
 module btn_pos() {
-    translate([18.7-(w/2), 10.4]) children();
+    translate([-57.9, 7.5]) children();
 }
 
 module smlbtn_pos() {
-    translate([18.7-(w/2), -17.5]) children();
+    translate([-57.9, -20.5]) children();
 }
 
 module led_pos() {
-    translate([-48.6, 30]) children();
-    translate([-56.6, 30]) children();
-    translate([-64.6, 30]) children();
+    translate([-57.9, 26]) {
+        translate([3.9, 0]) children();
+        //translate([0, 0]) children();
+        translate([-3.9, 0]) children();
+    }
 }
 
 module screw_pos(internal=true) {
     translate([0, 0.2, 0]) {
-        translate([143.5/2, 0]) {
+        translate([144/2, 0]) {
             translate([0, -29]) children();
             if (internal) translate([0, 0]) children();
             translate([0, 29]) children();
-            if (internal) translate([-30, 0]) {
-                //translate([0, -29]) children();
-                translate([0, 0]) children();
+            if (internal) translate([-29, 0]) {
+                translate([0, -29]) children();
+                //translate([0, 0]) children();
                 translate([0, 29]) children();
             }
         }
-        translate([-144.5/2, 0]) {
+        translate([-145/2, 0]) {
             translate([0, -29]) children();
             if (internal) translate([0, 0]) children();
             translate([0, 29]) children();
-            if (internal) translate([30, 0]) {
+            if (internal) translate([29, 0]) {
                 translate([0, -29]) children();
                 //translate([0, 0]) children();
                 translate([0, 29]) children();
@@ -125,8 +130,6 @@ module screw_pos(internal=true) {
     }
 }
 
-
-// TODO: Remove these
 
 
 

@@ -12,13 +12,13 @@ $fn = RES ? RES : 32;
 
 module screen() {
     linear_extrude(height=5) translate([0, 0]) square([77.5, 65], center=true);
-    linear_extrude(height=5, center=true) translate([0, 3]) square([73, 56], center=true);
+    linear_extrude(height=5, center=true) translate([0, 3]) square([72.5, 55.5], center=true);
 }
 
 
 module control_cutout(l) {
-    translate([57, l?0.75:-2, 6.25]) {
-        linear_extrude(height=10, center=true) offset(4) offset(-4) square([34, l ? 63.5 : 58], center=true);
+    translate([57, l?0.75:-3.5, 6.25]) {
+        linear_extrude(height=10, center=true) offset(4) offset(-4) square([34, l ? 63.5 : 54], center=true);
         //cube([26, 52, 10], center=true);
     }
 }
@@ -61,8 +61,8 @@ module front() {
                 linear_extrude(height=7.6) outline();
 
                 translate([0, 1, 3.5]) led_pos() {
-                    cube([5, 3, 6], center=true);
-                    cube([4, 2, 50], center=true);
+                    cube([5, 5, 6], center=true);
+                    cube([4, 4, 50], center=true);
                 }
                 translate([0, 0, 6.0]) linear_extrude(height=5) outline();
                 translate([0, 0, 1.01]) screen();
