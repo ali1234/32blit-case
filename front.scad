@@ -67,8 +67,10 @@ module front() {
                 linear_extrude(height=7.6) outline();
 
                 translate([0, 1, 3.5]) led_pos() {
-                    cube([5, 5, 6], center=true);
-                    cube([4, 4, 50], center=true);
+                    //cube([5, 5, 6], center=true);
+                    //cube([4, 4, 50], center=true);
+                    cylinder(d=5, h=6, center=true);
+                    cylinder(d=3.6, h=10, center=true);
                 }
                 translate([0, 0, 6.0]) linear_extrude(height=5) outline();
                 translate([0, 0, 1.01]) screen();
