@@ -8,15 +8,15 @@ RES = undef;
 $fn = RES ? RES : 32;
 
 
-back_depth=6;
+back_depth=6.2;
 back_thickness=1.0;
 screw_thickness = 2.0;
 
 
 debug_pos = (58 - (w/2));
-reset_pos = ((w/2) - 67.8);
-usb_pos = ((w/2) - 57.5);
-sd_pos = ((w/2) - 42.5);
+reset_pos = ((w/2) - 68.7);
+usb_pos = ((w/2) - 58.2);
+sd_pos = ((w/2) - 43.4);
 
 
 module back() {
@@ -34,7 +34,7 @@ module back() {
             }
             translate([usb_pos, h/2, back_depth-2.2]) cube([11, 3, 6.4], center=true);
             translate([reset_pos, h/2, back_depth-2.2]) cube([37.5, 3, 6.4], center=true);
-            translate([sd_pos, h/2, back_depth-2.2]) cube([16.5, 3, 6.4], center=true);
+            translate([sd_pos, h/2, back_depth-2.2]) cube([18, 3, 6.4], center=true);
             translate([debug_pos, h/2, back_depth-2.2]) cube([29.5, 3, 6.4], center=true);
             //translate([w/2 - 50.6, h/2, back_depth-2.2]) cube([1.2, 3, 6.4], center=true);
         }
@@ -44,10 +44,11 @@ module back() {
 
         // reset
         translate([reset_pos, h/2, back_depth+0.2]) cube([3, 10, 2.5], center=true);
-        translate([reset_pos, (h/2)-1, back_depth+0.2]) cube([5, 4, 5], center=true);
+        translate([reset_pos, (h/2)-1.1, back_depth+0.2]) cube([7, 4, 5], center=true);
 
         // SD
         translate([sd_pos, h/2, back_depth-0.1]) cube([14, 10, 2.3], center=true);
+        translate([sd_pos-0.5, (h/2)-1.3, back_depth-0.1]) cube([16, 4, 2.3], center=true);
 
         // debug
         translate([debug_pos, h/2, back_depth-0.6]) cube([27, 10, 4.5], center=true);
@@ -67,10 +68,10 @@ module back() {
 
 }
 
-intersection() {
+//intersection() {
     mirror([1, 0]) back();
-    union() {
-        translate([0, 75]) cube([300, 100, 100], center=true);
-        translate([100, 60]) cube([100, 100, 100], center=true);
-    }
-}
+//    union() {
+//        translate([0, 76]) cube([300, 100, 100], center=true);
+        //translate([100, 60]) cube([100, 100, 100], center=true);
+//    }
+//}
