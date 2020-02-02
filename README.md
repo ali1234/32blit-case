@@ -1,5 +1,5 @@
 # 32blit-case
 
-Custom case for 32blit alpha hardware.
+Custom case for 32blit beta hardware.
 
-NOTE: This will *not* fit public beta hardware.
+This is now updated to fit the beta backer hardware revision.
