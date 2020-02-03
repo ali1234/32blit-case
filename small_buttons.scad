@@ -28,12 +28,42 @@ module small_button_base() {
     }
 }
 
+
+module small_button_top(r, label="?") {
+    difference() {
+        scale([1, 1, 0.25]) sphere(r=r);
+        translate([0, 0, r*0.05]) linear_extrude(height=10, convexity=4) {
+            if (label == 0) {
+                difference() {
+                    intersection() {
+                        translate([0, 0.25]) square([2.2, 2.5], center=true);
+                        translate([0, -1.5]) rotate(45) square(4.3, center=true);
+                    }
+                    offset(-0.4)intersection() {
+                        translate([0, 0.25]) square([2.2, 2.5], center=true);
+                        translate([0, -1.5]) rotate(45) square(4.3, center=true);
+                    }
+                }
+            } else {
+                square([2.2, 0.4], center=true);
+                translate([0, 0.9]) square([2.2, 0.4], center=true);
+                translate([0, -0.9]) square([2.2, 0.4], center=true);
+            }
+        }
+        translate([0, 0, 5.45]) cube([10, 10, 10], center=true);
+    }
+}
+
+
 module small_button() {
     color("lightgrey") {
         union() {
             linear_extrude(height=1.2) small_button_base();
             cylinder(r=small_button_radius, h=small_button_height);
-            translate([0, 0, small_button_height-0.0]) button_top(small_button_radius, small_button_letters[$which]);
+            // for letters
+            //translate([0, 0, small_button_height-0.0]) button_top(small_button_radius, small_button_letters[$which]);
+            // for icons
+            translate([0, 0, small_button_height-0.0]) small_button_top(small_button_radius, $which);
         }
     }
 }
@@ -74,7 +104,7 @@ module small_button_insert() {
 
 RES = undef;
 
-$fn = RES ? RES : 16;
+$fn = RES ? RES : 32;
 
 
 WHICH = undef;
