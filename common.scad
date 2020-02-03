@@ -95,11 +95,11 @@ module analog_supports() {
 }
 
 module btn_pos() {
-    translate([-57.9, 7.75]) children();
+    translate([-57.9, 7.9]) children();
 }
 
 module smlbtn_pos() {
-    translate([-57.9, -20.25]) children();
+    translate([-57.9, -19.75]) children();
 }
 
 module led_pos() {
