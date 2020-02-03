@@ -12,7 +12,7 @@ $fn = RES ? RES : 32;
 
 module screen() {
     linear_extrude(height=5) translate([0, 0]) square([77.5, 65], center=true);
-    linear_extrude(height=5, center=true) translate([0, 3]) square([72.5, 55.5], center=true);
+    linear_extrude(height=5, center=true) translate([0, 3]) square([72, 55], center=true);
 }
 
 
