@@ -58,16 +58,19 @@ module button_top(r, label="?") {
 }
 
 
-module button(letter=true) {
+module button(letter=true, hold=false) {
     color(button_colours[$which]) {
-        union() {
-            linear_extrude(height=1.2) button_base();
-            cylinder(r=button_radius, h=button_height);
-            if (letter) {
-                translate([0, 0, button_height-0.0]) button_top(button_radius, button_letters[$which]);
-            } else {
-                translate([0, 0, button_height-0.0]) button_top(button_radius, " ");
+        difference() {
+            union() {
+                linear_extrude(height=1.2) button_base();
+                cylinder(r=button_radius, h=button_height);
+                if (letter) {
+                    translate([0, 0, button_height-0.0]) button_top(button_radius, button_letters[$which]);
+                } else {
+                    translate([0, 0, button_height-0.0]) button_top(button_radius, " ");
+                }
             }
+            if (hole) translate([0, 0, -0.01]) cylinder(d=1.8, h=3);
         }
     }
 }
@@ -101,20 +104,22 @@ $fn = RES ? RES : 32;
 
 
 WHICH = undef;
+HOLE = undef;
+
 if (WHICH == "A") {
-    button($which = 0);
+    button(hole = HOLE, $which = 0);
 }
 else if (WHICH == "B") {
-    button($which = 1);
+    button(hole = HOLE, $which = 1);
 }
 else if (WHICH == "X") {
-    button($which = 2);
+    button(hole = HOLE, $which = 2);
 }
 else if (WHICH == "Y") {
-    button($which = 3);
+    button(hole = HOLE, $which = 3);
 }
 else if (WHICH == "blank") {
-    button(letter = false, $which = 0);
+    button(letter = false, hole = HOLE, $which = 0);
 }
 else if (WHICH == "insert") {
     button_insert();

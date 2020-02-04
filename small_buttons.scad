@@ -55,15 +55,18 @@ module small_button_top(r, label="?") {
 }
 
 
-module small_button() {
+module small_button(hole=false) {
     color("lightgrey") {
-        union() {
-            linear_extrude(height=1.2) small_button_base();
-            cylinder(r=small_button_radius, h=small_button_height);
-            // for letters
-            //translate([0, 0, small_button_height-0.0]) button_top(small_button_radius, small_button_letters[$which]);
-            // for icons
-            translate([0, 0, small_button_height-0.0]) small_button_top(small_button_radius, $which);
+        difference() {
+            union() {
+                linear_extrude(height=1.2) small_button_base();
+                cylinder(r=small_button_radius, h=small_button_height);
+                // for letters
+                //translate([0, 0, small_button_height-0.0]) button_top(small_button_radius, small_button_letters[$which]);
+                // for icons
+                translate([0, 0, small_button_height-0.0]) small_button_top(small_button_radius, $which);
+            }
+            if (hole) translate([0, 0, -0.01]) cylinder(d=1.8, h=3);
         }
     }
 }
@@ -108,11 +111,13 @@ $fn = RES ? RES : 32;
 
 
 WHICH = undef;
+HOLE = undef;
+
 if (WHICH == "H") {
-    small_button($which = 0);
+    small_button(hole = HOLE, $which = 0);
 }
 else if (WHICH == "M") {
-    small_button($which = 1);
+    small_button(hole = HOLE, $which = 1);
 }
 else if (WHICH == "insert") {
     small_button_insert();
