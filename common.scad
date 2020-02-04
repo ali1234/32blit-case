@@ -103,7 +103,13 @@ module smlbtn_pos() {
 }
 
 module led_pos() {
-    translate([-57.9, 26]) {
+    translate([-57.9, 27]) {
+        children();
+    }
+}
+
+module led_individual_pos() {
+    led_pos() {
         translate([3.9, 0]) children();
         //translate([0, 0]) children();
         translate([-3.9, 0]) children();

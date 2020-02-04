@@ -4,6 +4,7 @@
 include <common.scad>;
 
 use <small_buttons.scad>;
+use <light_pipe_insert.scad>;
 
 RES = undef;
 
@@ -73,12 +74,8 @@ module front() {
             difference() {
                 linear_extrude(height=7.6) outline();
 
-                translate([0, 1, 3.5]) led_pos() {
-                    //cube([5, 5, 6], center=true);
-                    //cube([4, 4, 50], center=true);
-                    cylinder(d=5, h=6, center=true);
-                    cylinder(d=3.6, h=10, center=true);
-                }
+                light_pipe_insert(neg=true);
+
                 translate([0, 0, 6.0]) linear_extrude(height=5) outline();
                 translate([0, 0, 1.01]) screen();
                 control_cutout(true);
@@ -120,9 +117,7 @@ module front() {
 
 //intersection() {
     front();
-//    translate([-1, 0]) analog_pos() cube([24, 23, 30], center=true);
-//    translate([0, -0.9]) analog_pos() cylinder(d=29.1, h=20);
-//    translate([-1, 0.5]) analog_pos() cylinder(d=29.1, h=20);
+//    translate([-1, 26.7]) btn_pos() cube([41, 23, 30], center=true);
 //}
 
 
