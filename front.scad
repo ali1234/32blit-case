@@ -17,8 +17,8 @@ module screen() {
 
 
 module control_cutout(l) {
-    translate([57, l?0.75:-3.5, 6.25]) {
-        linear_extrude(height=10, center=true) offset(4) offset(-4) square([34, l ? 63.5 : 54], center=true);
+    translate([57, l?2.4:-2.8, 6.25]) {
+        linear_extrude(height=10, center=true) offset(4) offset(-4) square([34, l ? 60.25 : 52], center=true);
         //cube([26, 52, 10], center=true);
     }
 }
@@ -33,6 +33,13 @@ module support_ring(d) {
 
 module front() {
     shell();
+
+    translate([0, (-h/2)-0.2, 1]) {
+        translate([65, 0]) cylinder(r=1, h=6.6);
+        translate([50, 0]) cylinder(r=1, h=6.6);
+        translate([-65, 0]) cylinder(r=1, h=6.6);
+        translate([-50, 0]) cylinder(r=1, h=6.6);
+    }
 
     difference() {
         union() {
@@ -89,23 +96,23 @@ module front() {
 
         translate([0, 0, 1.6]) linear_extrude(height=20, convexity=2) {
             btn_pos() {
-                square([8, 32], center=true);
-                square([32, 8], center=true);
+                translate([0, -0.2]) square([8, 31], center=true);
+                square([31, 8], center=true);
             }
             dpad_pos() {
-                square([8, 32], center=true);
-                square([32, 8], center=true);
+                square([8, 31], center=true);
+                square([31, 8], center=true);
             }
             smlbtn_pos() {
-                square([8, 20], center=true);
-                square([32, 8], center=true);
+                square([8, 16], center=true);
+                square([28, 8], center=true);
             }
         }
 
         translate([0, 0, 1.25]) linear_extrude(height=20) {
             analog_pos() {
-                translate([0, -6, 0]) square([8, 28], center=true);
-                square([28, 8], center=true);
+                square([8, 23], center=true);
+                square([23, 8], center=true);
             }
         }
     }
