@@ -1,6 +1,9 @@
 // Copyright 2019 a.j.buxton@gmail.com
 // CC BY-NC-ND 4.0
 
+// This file shows all of the parts put together, for assembly reference or renders.
+
+
 include <common.scad>;
 
 use <front.scad>;
@@ -9,7 +12,8 @@ use <dpad.scad>;
 use <analog.scad>;
 use <buttons.scad>;
 use <small_buttons.scad>;
-use <lightpipe.scad>;
+use <light_pipe_insert.scad>;
+use <light_pipe.scad>;
 
 main_colour = "lightgrey";
 insert_colour = "grey";
@@ -35,10 +39,14 @@ module front_assembly() {
     }
     analog_pos() {
         color([0.2, 0.2, 0.2]) translate([0, 0, -2]) analog($fn=RES);
-        color(insert_colour) translate([0, 0, 3.4]) analog_insert($fn=RES);
+        color(insert_colour) translate([0, 0, 1.6]) analog_insert($fn=RES);
     }
-    translate([0, 0, 4.5]) led_pos() color("white") {
-        lightpipe();
+    translate([0, 0, 0]) color("black") {
+        light_pipe_insert();
+    }
+
+    translate([0, 0, 2.45]) led_individual_pos() color("white") {
+        light_pipe();
     }
 }
 
