@@ -58,7 +58,7 @@ module button_top(r, label="?") {
 }
 
 
-module button(letter=true, hold=false) {
+module button(letter=true, hole=false) {
     color(button_colours[$which]) {
         difference() {
             union() {
