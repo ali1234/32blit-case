@@ -60,7 +60,7 @@ module front() {
                 translate([0, 0, 0.01]) support_ring(23);
                 analog_supports() {
                     difference() {
-                        cylinder(d=3.2, h=6.05);
+                        cylinder(d=3.2, h=5.5);
                         translate([0, 0, 2]) cylinder(d=1.2, h=7);
                     }
                 }
