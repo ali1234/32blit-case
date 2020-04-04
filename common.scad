@@ -90,8 +90,8 @@ module analog_pos() {
 }
 
 module analog_supports() {
-    translate([7.1, 9.35]) children();
-    translate([-11, -6.55]) children();
+    translate([6.9, 9.28]) children();
+    translate([-11.2, -6.68]) children();
 }
 
 module btn_pos() {

@@ -61,7 +61,7 @@ module front() {
                 analog_supports() {
                     difference() {
                         cylinder(d=3.2, h=5.5);
-                        translate([0, 0, 2]) cylinder(d=1.2, h=7);
+                        translate([0, 0, 2]) cylinder(d=1.4, h=7);
                     }
                 }
             }
