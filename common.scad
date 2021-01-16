@@ -121,7 +121,7 @@ module screw_pos(internal=true) {
         translate([144/2, 0]) {
             translate([0, -29]) children();
             if (internal) translate([0, 0]) children();
-            translate([0, 29]) children();
+            translate([0, 29]) rotate(90) children();
             if (internal) translate([-29, 0]) {
                 translate([0, -29]) children();
                 //translate([0, 0]) children();
@@ -129,9 +129,9 @@ module screw_pos(internal=true) {
             }
         }
         translate([-145/2, 0]) {
-            translate([0, -29]) children();
+            translate([0, -29]) rotate(270) children();
             if (internal) translate([0, 0]) children();
-            translate([0, 29]) children();
+            translate([0, 29]) rotate(180) children();
             if (internal) translate([29, 0]) {
                 translate([0, -29]) children();
                 //translate([0, 0]) children();
