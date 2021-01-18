@@ -104,10 +104,9 @@ module small_button_insert() {
 }
 
 
+RES = is_undef(RES) ? 1 : RES;
 
-RES = undef;
-
-$fn = RES ? RES : 32;
+$fa = 8/RES; $fs = 0.8/RES;
 
 
 WHICH = undef;

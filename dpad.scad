@@ -3,9 +3,10 @@
 
 include <common.scad>;
 
-RES = undef;
+RES = is_undef(RES) ? 1 : RES;
 
-$fn = RES ? RES : 32;
+$fa = 12/RES; $fs = 0.5/RES;
+
 
 module dpad_outline() {
     offset(r=0.5) offset(r=-0.5) offset(r=-0.5) offset(r=0.5) union() {

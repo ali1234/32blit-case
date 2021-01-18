@@ -3,9 +3,10 @@
 
 include <common.scad>;
 
-RES = undef;
+RES = is_undef(RES) ? 1 : RES;
 
-$fn = RES ? RES : 32;
+$fa = 8/RES; $fs = 0.2/RES;
+
 
 module light_pipe_insert(neg=false) {
     offs = neg ? -0.1 : 0;

@@ -97,10 +97,9 @@ module button_insert() {
 }
 
 
+RES = is_undef(RES) ? 1 : RES;
 
-RES = undef;
-
-$fn = RES ? RES : 32;
+$fa = 8/RES; $fs = 2/RES;
 
 
 WHICH = undef;

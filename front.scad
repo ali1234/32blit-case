@@ -6,9 +6,9 @@ include <common.scad>;
 use <small_buttons.scad>;
 use <light_pipe_insert.scad>;
 
-RES = undef;
+RES = is_undef(RES) ? 1 : RES;
 
-$fn = RES ? RES : 32;
+$fa = 12/RES; $fs = 1/RES;
 
 
 module screen() {

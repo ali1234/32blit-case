@@ -1,8 +1,8 @@
 // print in vase mode!
 
-RES = undef;
+RES = is_undef(RES) ? 1 : RES;
 
-$fn = RES ? RES : 32;
+$fa = 8/RES; $fs = 0.8/RES;
 
 module light_pipe() {
     cylinder(d=2.95, h=5, center=true);

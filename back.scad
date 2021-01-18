@@ -3,11 +3,10 @@
 
 include <common.scad>;
 
-RES = undef;
+RES = is_undef(RES) ? 1 : RES;
 
-//$fn = RES ? RES : 32;
-$fs=0.5;
-$fa=2;
+$fa = 8/RES; $fs = 2/RES;
+
 
 battery_thickness=8;
 back_thickness=1;

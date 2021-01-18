@@ -3,9 +3,10 @@
 
 include <common.scad>;
 
-RES = undef;
+RES = is_undef(RES) ? 1 : RES;
 
-$fn = RES ? RES : 32;
+$fa = 8/RES; $fs = 2/RES;
+
 
 module analog() {
     circle(d=15);
