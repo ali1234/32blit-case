@@ -3,7 +3,9 @@
 
 include <controls.scad>;
 
-$fn=64;
+RES = is_undef(RES) ? 2 : RES;
+
+$fa = 8/RES; $fs = 2/RES;
 
 module twobytwo() {
     children();

@@ -5,9 +5,9 @@ include <common.scad>;
 
 use <small_buttons.scad>;
 
-RES = undef;
+RES = is_undef(RES) ? 2 : RES;
 
-$fn = RES ? RES : 32;
+$fa = 8/RES; $fs = 2/RES;
 
 
 module screen() {
@@ -16,12 +16,23 @@ module screen() {
 }
 
 
-module control_cutout(l) {
-    translate([57, l?0.75:-2, 6.25]) {
-        linear_extrude(height=10, center=true) offset(4) offset(-4) square([34, l ? 63.5 : 58], center=true);
-        //cube([26, 52, 10], center=true);
+module control_cutout_l() {
+    translate([57, 2.1, 6.25]) {
+        linear_extrude(height=10, center=true) offset(4) offset(-4) square([34, 60], center=true);
     }
 }
+
+module control_cutout_r() {
+    translate([56.55, -0.3, 6.25]) {
+        linear_extrude(height=10, center=true) offset(4) offset(-4) square([32, 54.5], center=true);
+    }
+}
+
+
+module control_cutout(l) {
+    if (l) control_cutout_l();
+    else control_cutout_r();
+}  
 
 
 module support_ring(d) {
@@ -32,12 +43,16 @@ module support_ring(d) {
 
 
 module front() {
-    shell();
+    shell(height=7.7);
 
     difference() {
         union() {
-            screw_pos() cylinder(r=2, h=6.01);
-
+            screw_pos() {
+                hull() {
+                    cylinder(r=2, h=6.01);
+                    translate([2, 0]) linear_extrude(height=6.01) square([1.9, 4], center=true);
+                }
+            }
             btn_pos() {
                 cylinder(d=button_hole_diameter+2, h=3.5);
                 support_ring(button_hole_diameter+2);

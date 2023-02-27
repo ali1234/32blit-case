@@ -103,22 +103,35 @@ module led_pos() {
 module screw_pos(internal=true) {
     translate([0, 0.2, 0]) {
         translate([143.5/2, 0]) {
-            translate([0, -29]) children();
+            translate([0, -29]) hull() {
+                rotate(0) children();
+                rotate(-90) children();
+            }
             if (internal) translate([0, 0]) children();
-            translate([0, 29]) children();
+            translate([0, 29]) hull() {
+                rotate(0) children();
+                rotate(90) children();
+            }
             if (internal) translate([-30, 0]) {
-                //translate([0, -29]) children();
-                translate([0, 0]) children();
-                translate([0, 29]) children();
+                translate([0, 0]) rotate(180) children();
+                translate([0, 29]) hull() {
+                    rotate(180) children();
+                    rotate(90) children();
+                }
             }
         }
         translate([-144.5/2, 0]) {
-            translate([0, -29]) children();
-            if (internal) translate([0, 0]) children();
-            translate([0, 29]) children();
+            translate([0, -29]) hull() {
+                rotate(180) children();
+                rotate(-90) children();
+            }
+            if (internal) translate([0, 0]) rotate(180) children();
+            translate([0, 29]) rotate(180) children();
             if (internal) translate([30, 0]) {
-                translate([0, -29]) children();
-                //translate([0, 0]) children();
+                translate([0, -29]) hull() {
+                    children();
+                    rotate(-90) children();
+                }
                 translate([0, 29]) children();
             }
         }
